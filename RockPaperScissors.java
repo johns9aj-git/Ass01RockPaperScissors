@@ -15,8 +15,9 @@ public class RockPaperScissors {
         Scanner in = new Scanner(System.in);
         boolean correctChoiceRockA = userAChoice.equalsIgnoreCase("R"); // <-- Wanted to see if this would work it did
                                                                         // not
+        boolean cycleComplete;
         int noLooping = 0;
-        String badInput = "";
+        String playAgain = "";
         final int MAX_ATTEMPTS = 5;
 
         // Input & Error Checking
@@ -32,7 +33,6 @@ public class RockPaperScissors {
                 if (userAChoice.equalsIgnoreCase("R") || userAChoice.equalsIgnoreCase("P")
                         || userAChoice.equalsIgnoreCase("S")) {
                     System.out.println("Valid input: " + userAChoice);
-                    userAChoice.toUpperCase(); // ALL VALIDS ARE UPPER
                     break;
                 } else { // ERROR Bad Input
 
@@ -47,7 +47,7 @@ public class RockPaperScissors {
                 }
             }
 
-        } while (true);
+        } while (true || playAgain.equalsIgnoreCase("Y"));
 
         // Grabbing playerB's input
 
@@ -60,7 +60,6 @@ public class RockPaperScissors {
                 if (userBChoice.equalsIgnoreCase("R") || userBChoice.equalsIgnoreCase("P")
                         || userBChoice.equalsIgnoreCase("S")) {
                     System.out.println("Valid input: " + userBChoice);
-                    userBChoice.toUpperCase(); // ALL VALIDS ARE UPPER
                     break;
                 } else { // ERROR Bad Input
 
@@ -75,17 +74,27 @@ public class RockPaperScissors {
                 }
             }
 
-        } while (true);
+        } while (true || playAgain.equalsIgnoreCase("Y"));
 
         // Processing Phase
 
         // TIE CONDITIONS
-        if (userAChoice == "R" && userBChoice == "R") {
+        if (userAChoice.equalsIgnoreCase("R") && userBChoice.equalsIgnoreCase("R")) {
             System.out.println("Rock vs Rock, It's a Tie!");
+            System.out.println("Would you like to play again: Y/N");
+            playAgain = in.nextLine();
+
         } else if (userAChoice == "P" && userBChoice == "P") {
             System.out.println("Paper vs Paper, it's a Tie!");
+            System.out.println("Would you like to play again: Y/N");
+            playAgain = in.nextLine();
+
         } else if (userAChoice == "S" && userBChoice == "S") {
             System.out.println("Scissors vs Scissors, It's a Tie!");
+            System.out.println("Would you liek to play again: Y/N");
+            playAgain = in.nextLine();
+
         }
+
     }
 }
