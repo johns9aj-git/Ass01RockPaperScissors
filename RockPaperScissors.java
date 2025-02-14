@@ -52,7 +52,7 @@ public class RockPaperScissors {
 
         do { // Loop until user inputs correct Var type (String) or badInput == 5.
 
-            System.out.println("Hello, playerA please type (R)ock, (P)aper, or (S)cissors: ");
+            System.out.println("Hello, playerB please type (R)ock, (P)aper, or (S)cissors: ");
 
             if (in.hasNext()) {
                 userBChoice = in.nextLine();
@@ -74,6 +74,10 @@ public class RockPaperScissors {
             }
 
         } while (true);
+
+        // Processing Phase
+
+        // TIE CONDITIONS
 
     }
 }
