@@ -146,7 +146,7 @@ public class RockPaperScissors {
             } while (!playerBValidInput);
         } while (playAgain.equalsIgnoreCase("y"));
 
-        System.out.println("Thanks for Playing"); // Exit message
+        System.out.println("Thanks for Playing :)"); // Exit message
     }
 
 }
