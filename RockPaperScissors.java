@@ -32,7 +32,7 @@ public class RockPaperScissors {
                 if (userAChoice.equalsIgnoreCase("R") || userAChoice.equalsIgnoreCase("P")
                         || userAChoice.equalsIgnoreCase("S")) {
                     System.out.println("Valid input: " + userAChoice);
-                    userAChoice.toUpperCase(); // Useful for later
+                    userAChoice.toUpperCase(); // ALL VALIDS ARE UPPER
                     break;
                 } else { // ERROR Bad Input
 
@@ -60,7 +60,7 @@ public class RockPaperScissors {
                 if (userBChoice.equalsIgnoreCase("R") || userBChoice.equalsIgnoreCase("P")
                         || userBChoice.equalsIgnoreCase("S")) {
                     System.out.println("Valid input: " + userBChoice);
-                    userBChoice.toUpperCase();
+                    userBChoice.toUpperCase(); // ALL VALIDS ARE UPPER
                     break;
                 } else { // ERROR Bad Input
 
@@ -81,7 +81,11 @@ public class RockPaperScissors {
 
         // TIE CONDITIONS
         if (userAChoice == "R" && userBChoice == "R") {
-
+            System.out.println("Rock vs Rock, It's a Tie!");
+        } else if (userAChoice == "P" && userBChoice == "P") {
+            System.out.println("Paper vs Paper, it's a Tie!");
+        } else if (userAChoice == "S" && userBChoice == "S") {
+            System.out.println("Scissors vs Scissors, It's a Tie!");
         }
     }
 }
