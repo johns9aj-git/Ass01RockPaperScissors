@@ -32,6 +32,7 @@ public class RockPaperScissors {
                 if (userAChoice.equalsIgnoreCase("R") || userAChoice.equalsIgnoreCase("P")
                         || userAChoice.equalsIgnoreCase("S")) {
                     System.out.println("Valid input: " + userAChoice);
+                    userAChoice.toUpperCase(); // Useful for later
                     break;
                 } else { // ERROR Bad Input
 
@@ -59,6 +60,7 @@ public class RockPaperScissors {
                 if (userBChoice.equalsIgnoreCase("R") || userBChoice.equalsIgnoreCase("P")
                         || userBChoice.equalsIgnoreCase("S")) {
                     System.out.println("Valid input: " + userBChoice);
+                    userBChoice.toUpperCase();
                     break;
                 } else { // ERROR Bad Input
 
@@ -78,6 +80,8 @@ public class RockPaperScissors {
         // Processing Phase
 
         // TIE CONDITIONS
+        if (userAChoice == "R" && userBChoice == "R") {
 
+        }
     }
 }
