@@ -134,7 +134,7 @@ public class RockPaperScissors {
                         playAgain = in.nextLine();
                     } else if (userAChoice.equalsIgnoreCase("S") && userBChoice.equalsIgnoreCase("R")) {
                         System.out.println("Scissors vs Rock, Player B Wins!!");
-                        System.out.println("Would you like to play again");
+                        System.out.println("Would you like to play again Y/N");
                         playAgain = in.nextLine();
 
                     } else {
