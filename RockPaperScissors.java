@@ -15,7 +15,8 @@ public class RockPaperScissors {
         Scanner in = new Scanner(System.in);
         boolean correctChoiceRockA = userAChoice.equalsIgnoreCase("R"); // <-- Wanted to see if this would work it did
                                                                         // not
-        boolean cycleComplete;
+        boolean cycleComplete = false;
+
         int noLooping = 0;
         String playAgain = "";
         final int MAX_ATTEMPTS = 5;
@@ -23,87 +24,94 @@ public class RockPaperScissors {
         // Input & Error Checking
 
         // Grabbing UserA's Input
+        do {
+            boolean playerAValidInput = false;
+            boolean playerBValidInput = false;
 
-        do { // Loop until user inputs correct Var type (String) or badInput == 5.
+            do { // Loop until user inputs correct Var type (String) or badInput == 5.
 
-            System.out.println("Hello, playerA please type (R)ock, (P)aper, or (S)cissors: ");
+                System.out.println("Hello, playerA please type (R)ock, (P)aper, or (S)cissors: ");
 
-            if (in.hasNext()) {
-                userAChoice = in.nextLine();
-                if (userAChoice.equalsIgnoreCase("R") || userAChoice.equalsIgnoreCase("P")
-                        || userAChoice.equalsIgnoreCase("S")) {
-                    System.out.println("Valid input: " + userAChoice);
-                    break;
-                } else { // ERROR Bad Input
+                if (in.hasNext()) {
+                    userAChoice = in.nextLine();
+                    if (userAChoice.equalsIgnoreCase("R") || userAChoice.equalsIgnoreCase("P")
+                            || userAChoice.equalsIgnoreCase("S")) {
+                        System.out.println("Valid input: " + userAChoice);
+                        playerAValidInput = true;
 
-                    System.out.println(
-                            "Bad Input: '" + userAChoice + "'. Please enter a valid string character R, P, or S.");
-                    noLooping++;
+                    } else { // ERROR Bad Input
 
-                    if (noLooping >= MAX_ATTEMPTS) {
-                        System.out.println("Too many invalid attempts. EXITING");
-                        return; // Exits after 5 errors
+                        System.out.println(
+                                "Bad Input: '" + userAChoice + "'. Please enter a valid string character R, P, or S.");
+                        noLooping++;
+
+                        if (noLooping >= MAX_ATTEMPTS) {
+                            System.out.println("Too many invalid attempts. EXITING");
+                            return; // Exits after 5 errors
+                        }
+                        // Exit Code
+                        if (playAgain.equalsIgnoreCase("N")) {
+                            System.out.println("Thanks for playing");
+                            return;
+                        }
                     }
                 }
-            }
+            } while (!playerAValidInput);
 
-        } while (true || playAgain.equalsIgnoreCase("Y"));
+            // PlayerB Input
 
-        // Grabbing playerB's input
+            do {
 
-        do { // Loop until user inputs correct Var type (String) or badInput == 5.
+                System.out.println("Hello, playerB please type (R)ock, (P)aper, or (S)cissors: ");
 
-            System.out.println("Hello, playerB please type (R)ock, (P)aper, or (S)cissors: ");
+                if (in.hasNext()) {
 
-            if (in.hasNext()) {
-                userBChoice = in.nextLine();
-                if (userBChoice.equalsIgnoreCase("R") || userBChoice.equalsIgnoreCase("P")
-                        || userBChoice.equalsIgnoreCase("S")) {
-                    System.out.println("Valid input: " + userBChoice);
+                    userBChoice = in.nextLine();
+                    if (userBChoice.equalsIgnoreCase("R") || userBChoice.equalsIgnoreCase("P")
+                            || userBChoice.equalsIgnoreCase("S")) {
+                        System.out.println("Valid input: " + userBChoice);
+                        playerBValidInput = true;
 
-                }
+                    } else { // ERROR Bad Input
 
-                // PROCESSING PHASE
+                        System.out.println(
+                                "Bad Input: '" + userBChoice + "'. Please enter a valid string character R, P, or S.");
+                        noLooping++;
 
-                // TIE CONDITIONS
-
-                if (userAChoice.equalsIgnoreCase("R") && userBChoice.equalsIgnoreCase("R")) {
-                    System.out.println("Rock vs Rock, It's a Tie!");
-                    System.out.println("Would you like to play again: Y/N");
-                    playAgain = in.nextLine();
-
-                } else if (userAChoice == "P" && userBChoice == "P") {
-                    System.out.println("Paper vs Paper, it's a Tie!");
-                    System.out.println("Would you like to play again: Y/N");
-                    playAgain = in.nextLine();
-
-                } else if (userAChoice == "S" && userBChoice == "S") {
-                    System.out.println("Scissors vs Scissors, It's a Tie!");
-                    System.out.println("Would you like to play again: Y/N");
-                    playAgain = in.nextLine();
-
-                }
-
-                // EXITS & ERRORS
-
-                else { // ERROR Bad Input
-
-                    System.out.println(
-                            "Bad Input: '" + userBChoice + "'. Please enter a valid string character R, P, or S.");
-                    noLooping++;
-
-                    if (noLooping >= MAX_ATTEMPTS) {
-                        System.out.println("Too many invalid attempts. EXITING");
-                        return; // Exits after 5 errors
+                        if (noLooping >= MAX_ATTEMPTS) {
+                            System.out.println("Too many invalid attempts. EXITING");
+                            return; // Exits after 5 errors
+                        }
+                        // Exit Condition
+                        if (playAgain.equalsIgnoreCase("N"))
+                            System.out.println("Thanks for playing");
+                        return;
                     }
-                    // Exit Condition
-                    if (playAgain.equalsIgnoreCase("N"))
-                        ;
-                    System.out.println("Thanks for playing");
+
+                    // PROCESSING PHASE
+
+                    // TIE CONDITIONS
+
+                    if (userAChoice.equalsIgnoreCase("R") && userBChoice.equalsIgnoreCase("R")) {
+                        System.out.println("Rock vs Rock, It's a Tie!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+
+                    } else if (userAChoice.equalsIgnoreCase("P") && userBChoice.equalsIgnoreCase("P")) {
+                        System.out.println("Paper vs Paper, it's a Tie!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+
+                    } else if (userAChoice.equalsIgnoreCase("S") && userBChoice.equalsIgnoreCase("S")) {
+                        System.out.println("Scissors vs Scissors, It's a Tie!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+
+                    }
                 }
-            }
 
-        } while (true || playAgain.equalsIgnoreCase("Y"));
-
+            } while (!playerBValidInput);
+        } while (playAgain.equalsIgnoreCase("y"));
     }
+
 }
