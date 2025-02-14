@@ -60,8 +60,33 @@ public class RockPaperScissors {
                 if (userBChoice.equalsIgnoreCase("R") || userBChoice.equalsIgnoreCase("P")
                         || userBChoice.equalsIgnoreCase("S")) {
                     System.out.println("Valid input: " + userBChoice);
-                    break;
-                } else { // ERROR Bad Input
+
+                }
+
+                // PROCESSING PHASE
+
+                // TIE CONDITIONS
+
+                if (userAChoice.equalsIgnoreCase("R") && userBChoice.equalsIgnoreCase("R")) {
+                    System.out.println("Rock vs Rock, It's a Tie!");
+                    System.out.println("Would you like to play again: Y/N");
+                    playAgain = in.nextLine();
+
+                } else if (userAChoice == "P" && userBChoice == "P") {
+                    System.out.println("Paper vs Paper, it's a Tie!");
+                    System.out.println("Would you like to play again: Y/N");
+                    playAgain = in.nextLine();
+
+                } else if (userAChoice == "S" && userBChoice == "S") {
+                    System.out.println("Scissors vs Scissors, It's a Tie!");
+                    System.out.println("Would you like to play again: Y/N");
+                    playAgain = in.nextLine();
+
+                }
+
+                // EXITS & ERRORS
+
+                else { // ERROR Bad Input
 
                     System.out.println(
                             "Bad Input: '" + userBChoice + "'. Please enter a valid string character R, P, or S.");
@@ -71,30 +96,14 @@ public class RockPaperScissors {
                         System.out.println("Too many invalid attempts. EXITING");
                         return; // Exits after 5 errors
                     }
+                    // Exit Condition
+                    if (playAgain.equalsIgnoreCase("N"))
+                        ;
+                    System.out.println("Thanks for playing");
                 }
             }
 
         } while (true || playAgain.equalsIgnoreCase("Y"));
-
-        // Processing Phase
-
-        // TIE CONDITIONS
-        if (userAChoice.equalsIgnoreCase("R") && userBChoice.equalsIgnoreCase("R")) {
-            System.out.println("Rock vs Rock, It's a Tie!");
-            System.out.println("Would you like to play again: Y/N");
-            playAgain = in.nextLine();
-
-        } else if (userAChoice == "P" && userBChoice == "P") {
-            System.out.println("Paper vs Paper, it's a Tie!");
-            System.out.println("Would you like to play again: Y/N");
-            playAgain = in.nextLine();
-
-        } else if (userAChoice == "S" && userBChoice == "S") {
-            System.out.println("Scissors vs Scissors, It's a Tie!");
-            System.out.println("Would you liek to play again: Y/N");
-            playAgain = in.nextLine();
-
-        }
 
     }
 }
