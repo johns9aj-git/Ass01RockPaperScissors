@@ -108,10 +108,45 @@ public class RockPaperScissors {
                         playAgain = in.nextLine();
 
                     }
+                    // PLAYER A WINS
+                    else if (userAChoice.equalsIgnoreCase("R") && userBChoice.equalsIgnoreCase("S")) {
+                        System.out.println("Rock breaks Scissors, PlayerA Wins!!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+                    } else if (userAChoice.equalsIgnoreCase("P") && userBChoice.equalsIgnoreCase("R")) {
+                        System.out.println("Paper covers Rock, PlayerA Wins!!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+
+                    } else if (userAChoice.equalsIgnoreCase("S") && userBChoice.equalsIgnoreCase("P")) {
+                        System.out.println("Scissors slices Paper, PlayerA Wins!!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+                    }
+                    // PLAYER B WINS
+                    else if (userAChoice.equalsIgnoreCase("R") && userBChoice.equalsIgnoreCase("P")) {
+                        System.out.println("Rocks vs Paper, Player B Wins!!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+                    } else if (userAChoice.equalsIgnoreCase("P") && userBChoice.equalsIgnoreCase("S")) {
+                        System.out.println("Paper vs Scissors, Player B Wins!!");
+                        System.out.println("Would you like to play again: Y/N");
+                        playAgain = in.nextLine();
+                    } else if (userAChoice.equalsIgnoreCase("S") && userBChoice.equalsIgnoreCase("R")) {
+                        System.out.println("Scissors vs Rock, Player B Wins!!");
+                        System.out.println("Would you like to play again");
+                        playAgain = in.nextLine();
+
+                    } else {
+                        System.out.println("Not sure how you got here lol. What lovely weather lately.");
+                    }
+
                 }
 
             } while (!playerBValidInput);
         } while (playAgain.equalsIgnoreCase("y"));
+
+        System.out.println("Thanks for Playing"); // Exit message
     }
 
 }
